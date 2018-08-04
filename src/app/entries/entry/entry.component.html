@@ -1,0 +1,16 @@
+<h4>Hello from entry.component</h4>
+<figure>
+{{entry.title}}
+<img src="{{entry.photo}}">
+<figcaption>{{entry.description}}</figcaption>
+</figure>
+<div class="actions">
+    <button type="button" (click)="entry.isLiked = !entry.isLiked" [ngClass]="{liked: entry.isLiked}">❤</button>
+    <button type="button" (click)="entry.showComments = !entry.showComments">Comments ({{entry.comments.length}})</button>
+</div>
+<div class="comments" *ngIf="showComments">
+    <div class="comment" *ngFor="let comment of entry.comments">
+        <p><strong>{{comment.name}}</strong>{{comment.comment}}</p>
+    </div>
+</div>
+
